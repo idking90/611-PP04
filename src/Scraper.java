@@ -20,7 +20,6 @@ import java.util.regex.Pattern;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-
 public class Scraper{
 	
 	private String url; 
@@ -48,7 +47,6 @@ public class Scraper{
 	private Matcher urlMatcher ;
 	private Matcher descriptionMatcher ;
 
-	
 	Scraper(String url, String fileName){
 		this.url = url;
 		this.fileName=fileName;
@@ -63,9 +61,7 @@ public class Scraper{
 	// this method will parse a song data (starting from the first URL), and it creates song objects for each song URL
 	// it adds the new Song object to the array of Song objects, songs 
 	private void parseData() throws IOException {
-		//all of the hardest work is gonna go between here and what I have written below
-		
-		//this section needs to be looped for each song. For now just trying to learn how to read the URL
+
 		URL urlAsURL;
 		try {
 			urlAsURL = new URL(url);
@@ -110,6 +106,7 @@ public class Scraper{
 			String title="";
 			String url ="";
 			String description="";
+         
 			while(rankMatcher.find()) {
 				rankAsString=rankMatcher.group();
 			}
@@ -136,13 +133,8 @@ public class Scraper{
 				description=descriptionMatcher.group();
 				break; //leaves while loop after first result of that pattern
 			}
-			//right now, the variables all appear as they're supposed to, minus "rankAsString" 
-			//except each one has a bunch of garbage attached to it from the regex to find it within the HTML
-			//next step is trying to get rid of that garbage to turn it into something meaningful
-			//and consider replacing the HTML code for some of the special characters, but that's low priority
-			
-			/*
 
+			/*
 			System.out.println("artist******" +artist);
 			System.out.println("title******" +title);
 			System.out.println("url******" +url);
@@ -173,14 +165,13 @@ public class Scraper{
 			producer =producer.replaceAll("&#xA0;", " ");
 			producer=producer.replaceAll("<strong>", "");
 			producer=producer.replaceAll("&quot;", "\"");
-			producer=producer.replaceAll("Released: Sept. &apos;64", "");//handles when </br> isn't in the right place
+			producer=producer.replaceAll("Released: Sept. &apos;64", ""); //handles when </br> isn't in the right place
 			producer=producer.trim();
-			if(rank==48) {//this one just did not play with the regex
+			if (rank == 48) {//this one just did not play with the regex
 				producer="Art Garfunkel, Roy Halee, Simon";
 			}
-			//System.out.println("producer that has been covnerted********* " + producer);
-			
-			
+			//System.out.println("producer that has been converted********* " + producer);
+
 			releaseDate = releaseDate.replaceAll("Released:", "");			
 			releaseDate = releaseDate.substring(0, releaseDate.lastIndexOf(","));
 			releaseDate = releaseDate.replaceAll("&#xA0;", "");
@@ -197,7 +188,7 @@ public class Scraper{
 			artist=artist.replaceAll(",", "");
 			artist=artist.trim();
 			
-			//System.out.println("artist post conversion********* " + artist);			//this was too easy and I don't trust it but ok.
+			//System.out.println("artist post conversion********* " + artist);	
 			
 			title = title.replaceAll("&#8216;", "");
 			title=title.replaceAll("&#8217;", "'");
@@ -236,17 +227,11 @@ public class Scraper{
 			theSong.setArtist(artist);//these two properties aren't part of the constructor, but are necessary for showing info in output area
 			theSong.setTitle(title);
 			songs[rank-1]=theSong;												
-			
 
-			
 		}//end for each songHTML loop
 
-		
-
-		
-	
 		writeToFile();
-		System.out.println("success writing file at "+ new Date());
+		//System.out.println("success writing file at "+ new Date());
 	}
 	
 	// will read the data from songs array (one by one) and return a String of the all Song object strings in multiple lines, each line has a Song object String
@@ -275,4 +260,3 @@ public class Scraper{
 	
     }//end Class
 	
-

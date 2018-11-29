@@ -95,7 +95,7 @@ public class Song {
 	}
 	@Override
 	public String toString() {
-		return "Song [rank=" + rank + ", writer=" + writer + ", producer=" + producer + ", releaseDate=" + releaseDate
-				+ ", url=" + url + ", description=" + description + "]";
+		return "Song Title: " + title + '\n' + "Rank: " + rank + '\n' + "Writer(s): " + writer + '\n' + "Producer(s): " + producer + '\n' 
+         + "Release Date: " + releaseDate + '\n' + "URL: " + url + '\n' + "Description: " + description;
 	}
 }
