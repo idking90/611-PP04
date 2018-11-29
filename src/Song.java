@@ -47,35 +47,35 @@ public class Song {
 		return rank;
 	}
 	public void setRank(int pRank) {
-		rank=pRank;
+		rank = pRank;
 	}
 	
 	public String getWriter() {
 		return writer;
 	}
 	public void setWriter(String pWriter) {
-		writer=pWriter;
+		writer = pWriter;
 	}
 	
 	public String getProducer() {
 		return producer;
 	}
 	public void setProducer(String pProducer) {
-		producer=pProducer;
+		producer = pProducer;
 	}
 	
 	public String getReleaseDate() {
 		return releaseDate;
 	}
 	public void setReleaseDate(String pReleaseDate) {
-		releaseDate=pReleaseDate;
+		releaseDate = pReleaseDate;
 	}
 	
 	public String getURL() {
 		return url;
 	}
 	public void setURL(String pURL) {
-		url=pURL;
+		url = pURL;
 	}
 	public int getRemainingObjects() {
 		return remainingObjects;
@@ -91,11 +91,12 @@ public class Song {
 		return title;
 	}
 	public void setTitle(String pTitle) {
-		title=pTitle;
+		title = pTitle;
 	}
 	@Override
 	public String toString() {
-		return "Song Title: " + title + '\n' + "Rank: " + rank + '\n' + "Writer(s): " + writer + '\n' + "Producer(s): " + producer + '\n' 
-         + "Release Date: " + releaseDate + '\n' + "URL: " + url + '\n' + "Description: " + description;
+		return "Song Title: " + title + " " + '\n' + "Rank: " + rank + " " + '\n' + "Writer(s): " + writer + " " + '\n' 
+         + "Producer(s): " + producer + " " + '\n' + "Release Date: " + releaseDate + " " + '\n' + "URL: " + url + " " 
+         + '\n' + "Description: " + description;
 	}
 }

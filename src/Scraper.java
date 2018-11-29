@@ -85,7 +85,7 @@ public class Scraper{
 		eachSongHTML[openSpot]=eachSongMatcher.group();
 		openSpot++;
 		}
-		//System.out.println("last song's html*****\n" + eachSongHTML[49]); //ok, this works, proving that each chunk of HTML gets added to this array
+		//System.out.println("last song's html*****\n" + eachSongHTML[49]); 
 		
 		for(String songCode: eachSongHTML){
 			rankMatcher = rankPattern.matcher(songCode);
@@ -167,7 +167,7 @@ public class Scraper{
 			producer=producer.replaceAll("&quot;", "\"");
 			producer=producer.replaceAll("Released: Sept. &apos;64", ""); //handles when </br> isn't in the right place
 			producer=producer.trim();
-			if (rank == 48) {//this one just did not play with the regex
+			if (rank == 48) {
 				producer="Art Garfunkel, Roy Halee, Simon";
 			}
 			//System.out.println("producer that has been converted********* " + producer);
@@ -222,7 +222,6 @@ public class Scraper{
 			}
 			//System.out.println("description****************** " + description);
 
-			
 			Song theSong = new Song(rank, writer, producer, releaseDate, url, description);
 			theSong.setArtist(artist);//these two properties aren't part of the constructor, but are necessary for showing info in output area
 			theSong.setTitle(title);
@@ -243,7 +242,7 @@ public class Scraper{
 				break;
 			}
 			else {
-				toReturn += song.toString() + "\n";
+				toReturn += song.toString() + System.getProperty("line.separator"); 
 			}
 		}
 		return toReturn;	//returns as one big string
@@ -257,6 +256,5 @@ public class Scraper{
 		write.print(toString());
 		write.close();
 	}
-	
-    }//end Class
+}//end Class
 	

@@ -51,7 +51,7 @@ public class UserGUI extends JFrame implements ActionListener{
    
 	private void initComponent() {
 		String[] forTesting = {"Press the 'Scrape Songs' button to scrape and populate this list."};
-		lblSong=new JLabel("Song: ");
+		lblSong = new JLabel("Song: ");
 		cboSongs = new JComboBox(forTesting);
 		   DefaultListCellRenderer dlcr = new DefaultListCellRenderer(); 
          dlcr.setHorizontalAlignment(DefaultListCellRenderer.CENTER); 
